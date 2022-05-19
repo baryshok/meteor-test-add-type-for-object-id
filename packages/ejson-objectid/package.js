@@ -12,8 +12,10 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.versionsFrom("2.6");
-  api.use("ecmascript");
-  api.mainModule("ejson-objectid.js");
+  api.use(["ecmascript", "ejson"]);
+  api.use("mongo", "server");
+  api.mainModule("ejson-objectid_client.js", "client");
+  api.mainModule("ejson-objectid_server.js", "server");
 });
 
 Npm.depends({
